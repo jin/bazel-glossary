@@ -39,7 +39,11 @@ linting. For example, if target `A` depends on `B`, one can apply an aspect on
 are cached and reused between targets requiring the same aspect. Created with
 the `aspect()` Starlark Build API function.
 
-<!-- **`BUILD` file**. -->
+**`BUILD` file**. The main build configuration file containing rule declarations
+(e.g. `cc_binary`, `go_library`). When `BUILD` files are evaluated and analyzed,
+the rules create new targets in the target dependency graph. A `BUILD` file can
+load and use Starlark-defined rules from `.bzl` files. A `BUILD` file marks a
+directory as a *package*.
 
 <!-- **Command.** -->
 
@@ -225,9 +229,20 @@ indicates test success. The exact contract between Bazel and tests (e.g. test
 environment variables, test result collection methods) is specified in the *Test
 Encyclopedia*.
 
-<!-- **Toolchain.** -->
+**Toolchain.** A set of tools to build outputs for a language. Typically, a
+toolchain includes compilers, linkers, interpreters or/and linters. A toolchain
+can also vary by platform, that is, a Unix compiler toolchain's components may
+differ for the Windows variant, even though the toolchain is for the same
+language. Selecting the right toolchain for the platform is known as *toolchain
+resolution*.
 
-<!-- **Transition.** -->
+**Transition.** A mapping of configuration state from one value to another.
+Enables targets in the build graph to have different configurations, even if
+they were instantiated from the same rule. A common usage of transitions is with
+*split transitions*, where certain parts of the target graph is forked with
+distinct configurations for each fork. For example, one can build an Android APK
+with native binaries compiled for ARM and x86 using split transitions in a
+single build.
 
 <!-- **Trimming.** -->
 
