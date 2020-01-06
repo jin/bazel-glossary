@@ -1,6 +1,6 @@
 # Bazel Glossary
 
-**`.bazelrc`.**
+<!-- **`.bazelrc`.** -->
 
 **Action.** A function that takes *artifacts* as inputs, and produces
 *artifacts* as outputs. Includes the command line arguments, action key,
@@ -39,13 +39,13 @@ linting. For example, if target `A` depends on `B`, one can apply an aspect on
 are cached and reused between targets requiring the same aspect. Created with
 the `aspect()` Starlark Build API function.
 
-**`BUILD` file**.
+<!-- **`BUILD` file**. -->
 
-**Command.**
+<!-- **Command.** -->
 
-**Command flags.**
+<!-- **Command flags.** -->
 
-**Configurable attributes.**
+<!-- **Configurable attributes.** -->
 
 **Configuration.** Context information that may affect a build. Every build has
 at least one configuration specifying the host/target platform, action
@@ -53,16 +53,16 @@ environment variables, as well as taking input from the default set of flag and
 attribute values of the build. Additional configurations may be created, for
 example, in a cross-compilation build.
 
-**Configuration fragment.**
+<!-- **Configuration fragment.** -->
 
-**Configuration-safe output.**
+<!-- **Configuration-safe output.** -->
 
 **Configured query.** Configuration-aware variant of `bazel query`. Allows
 querying configured targets in the post-analysis phase graph, which means
 configuration flags like `--platforms` and `--toolchains` affect the result of
 the query.
 
-**Constraints.**
+<!-- **Constraints.** -->
 
 **Dependency.** A directed edge between two *targets*. A target `//:foo` has a
 *target dependency* on another target `//:bar` if the attribute values of
@@ -100,7 +100,7 @@ tools (compilers, scripts, etc). Reads and writes artifacts. *Spawn strategies*
 control how these actions are executed: locally, remotely, dynamically,
 sandboxed, docker, and so on.
 
-**Execution root.**
+<!-- **Execution root.** -->
 
 **Hermeticity.** The lack of external influences during a build or test for the
 goal of producing a deterministic and correct result. This could mean only
@@ -108,9 +108,9 @@ allowing access to declared input artifacts, making timestamps and timezones
 fixed, restricting access/resetting environment variables, and using fixed seeds
 for random number generators.
 
-**Host configuration.**
+<!-- **Host configuration.** -->
 
-**Incompatible change.**
+<!-- **Incompatible change.** -->
 
 **Label.** An identifier for a target. A fully qualified label
 (`//path/to/package:target`) consists of `//` to mark the workspace root
@@ -135,11 +135,11 @@ For example: `Javac`, `CppCompile`, `AndroidManifestMerger`.
 
 **Nested Set.** See *depset*.
 
-**Output base.**
+<!-- **Output base.** -->
 
-**Output groups.**
+<!-- **Output groups.** -->
 
-**Output user root.**
+<!-- **Output user root.** -->
 
 **Package.** A directory containing a `BUILD` file. A package can contain
 subpackages, or subdirectories containing `BUILD` files, thus forming a *package
@@ -148,22 +148,22 @@ hierarchy*.
 **Package group.** A target representing a set of packages, and therefore has a
 label usually referenced in `visibility` attribute values.
 
-**Platform.**
+<!-- **Platform.** -->
 
 **Provider.** A set of information passed from a rule target to other rule
 targets. Usually contains information like: compiler options, transitive source
 files, transitive output files, and build metadata. Frequently used in
 conjunction with *depsets*.
 
-**Remote caching.**
+<!-- **Remote caching.** -->
 
-**Remote execution.**
+<!-- **Remote execution.** -->
 
 **Repository.** A directory containing a `WORKSPACE` file.
 
-**Repository cache.**
+<!-- **Repository cache.** -->
 
-**Repository rule.**
+<!-- **Repository rule.** -->
 
 **Reproducibility.** The property that a set of inputs will always produce the
 same set of outputs every time, regardless of time, method or environment. Not
@@ -181,11 +181,12 @@ runtime data dependencies of the test. Before the invocation of the executable
 (during `bazel test`), Bazel prepares the tree of runfiles alongside the test
 executable according to their source directory structure.
 
-**Sandboxing.**
+<!-- **Sandboxing.** -->
 
-**Skyframe.**
+**Skyframe.** The core parallel, functional, and incremental evaluation
+framework of Bazel.
 
-**Spawn strategy**.
+<!-- **Spawn strategy**. -->
 
 **Stamping.** A feature to embed additional information into Bazel-built
 artifacts. Commonly used for source control, build time and other
@@ -197,27 +198,26 @@ subset of Python aimed for the purpose of configuration, and for better
 performance. Uses the `.bzl` file extension. `BUILD` files use an even more
 restricted version of Starlark (e.g. no `def` function definitions).
 
-**Starlark Build API.**
+<!-- **Starlark Build API.** -->
 
-**Starlark configuration.**
+<!-- **Starlark configuration.** -->
 
-**Startup flags.**
+<!-- **Startup flags.** -->
 
-**Symlink forest.**
+<!-- **Symlink forest.** -->
 
 **Target.** A buildable unit. Can be a *rule target*, *file target*, or a
-**package group*. Rule targets are instantiated from rule declarations in
-`BUILD` files. Depending on the rule implementation, rule targets can also be
-*testable* or *runnable*. Every file used in `BUILD` files is a file target.
-Targets can depend on other targets via attributes (most commonly but not
-necessarily `deps`). A *configured target* is a pair of *target* and *build
-configuration*.
+*package group*. Rule targets are instantiated from rule declarations in `BUILD`
+files. Depending on the rule implementation, rule targets can also be *testable*
+or *runnable*. Every file used in `BUILD` files is a file target. Targets can
+depend on other targets via attributes (most commonly but not necessarily
+`deps`). A *configured target* is a pair of *target* and *build configuration*.
 
-**Target configuration.**
+<!-- **Target configuration.** -->
 
-**Target graph.**
+<!-- **Target graph.** -->
 
-**Target pattern.**
+<!-- **Target pattern.** -->
 
 **Tests.** Rule targets instantiated from test rules, and therefore contains a
 test executable. A return code of zero from the completion of the executable
@@ -225,11 +225,11 @@ indicates test success. The exact contract between Bazel and tests (e.g. test
 environment variables, test result collection methods) is specified in the *Test
 Encyclopedia*.
 
-**Toolchain.**
+<!-- **Toolchain.** -->
 
-**Transition.**
+<!-- **Transition.** -->
 
-**Trimming.**
+<!-- **Trimming.** -->
 
 **Visibility.** Defines whether a target can be depended upon by other targets.
 By default, target visibility is private. That is, the target can only be
