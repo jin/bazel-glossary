@@ -229,7 +229,7 @@ that support the `stamp` attribute.
 Formerly known as Skylark, the extension language for writing rules and macros.
 A restricted subset of Python (syntactically and grammatically) aimed for the
 purpose of configuration, and for better performance. Uses the `.bzl` file
-extension. [*`BUILD`*](#BUILD-files) files use an even more restricted version
+extension. [*`BUILD`*](#BUILD-file) files use an even more restricted version
 of Starlark (e.g. no `def` function definitions).
 
 <!-- **Starlark Build API.** -->
