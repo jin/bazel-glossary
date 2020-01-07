@@ -66,7 +66,14 @@ directory as a [*package*](#Package).
 
 <!-- **Command.** -->
 
-<!-- **Command flags.** -->
+#### Command flags.
+
+A set of flags specific to a command. Command flags are specified *after* the
+command (`bazel build <command flags>`). Flags can be applicable to one or more
+commands. For example, `--configure` is a flag exclusively for the `bazel sync`
+command, but `--keep_going` is applicable to `sync`, `build`, `test` and more.
+Flags are often used for configuration purposes, so changes in flag values can
+cause Bazel to invalidate in-memory graphs and restart the analysis phase.
 
 <!-- **Configurable attributes.** -->
 
