@@ -39,19 +39,19 @@ Bazel does not treat the files in tree artifacts as individual artifacts and
 thus cannot reference them directly as action inputs / outputs.
 
 #### Aspect
-A mechanism for rules to create additional actions in their dependencies. Most
-commonly used for build metadata generation for IDEs, and linting. For example,
-if target `A` depends on `B`, one can apply an aspect on `A` that traverses *up*
-a dependency edge to `B`, and runs additional [actions](#Action) in `B` to
-generate and collect additional output files. These additional actions are
-cached and reused between targets requiring the same aspect. Created with the
-`aspect()` Starlark Build API function.
+A mechanism for rules to create additional [*action*](#Action) in their
+dependencies. Most commonly used for build metadata generation for IDEs, and
+linting. For example, if target `A` depends on `B`, one can apply an aspect on
+`A` that traverses *up* a dependency edge to `B`, and runs additional actions in
+`B` to generate and collect additional output files. These additional actions
+are cached and reused between targets requiring the same aspect. Created with
+the `aspect()` Starlark Build API function.
 
 #### Aspect-on-aspect
 An aspect composition mechanism, where aspects can be applied on other aspects.
 Commonly used by IDE aspects to generate files using information also generated
 by aspects, like the `java_proto_library` aspect. For an aspect A to inspect
-aspect B, aspect A must declare the [**providers**](#provider) it needs from
+aspect B, aspect A must declare the [*providers*](#provider) it needs from
 aspect B (with `required_aspect_providers` attribute), and aspect B must declare
 the providers it returns (with `provides` attribute).
 
