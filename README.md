@@ -292,7 +292,7 @@ Defines a directory to be a [*workspace directory*](#Workspace-directory). Can
 be empty, although usually contains external repository declarations to fetch
 additional dependencies from the network or local filesystem.
 
-#### Credits
+## Credits
 
 * Michelle Irvine, Google (for the original glossary)
 * Greg Estren, Google (for the configurability glossary)
