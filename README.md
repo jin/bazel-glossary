@@ -51,9 +51,9 @@ cached and reused between targets requiring the same aspect. Created with the
 An aspect composition mechanism, where aspects can be applied on other aspects.
 Commonly used by IDE aspects to generate files using information also generated
 by aspects, like the `java_proto_library` aspect. For an aspect A to inspect
-aspect B, aspect A must declare the providers it needs from aspect B (with
-`required_aspect_providers` attribute), and aspect B must declare the providers
-it returns (with `provides` attribute).
+aspect B, aspect A must declare the [**providers**](#provider) it needs from
+aspect B (with `required_aspect_providers` attribute), and aspect B must declare
+the providers it returns (with `provides` attribute).
 
 #### `BUILD` file
 The main build configuration file containing rule declarations (e.g.
