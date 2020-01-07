@@ -47,12 +47,22 @@ generate and collect additional output files. These additional actions are
 cached and reused between targets requiring the same aspect. Created with the
 `aspect()` Starlark Build API function.
 
+#### Aspect-on-aspect
+An aspect composition mechanism, where aspects can be applied on other aspects.
+Commonly used by IDE aspects to generate files using information also generated
+by aspects, like the `java_proto_library` aspect. For an aspect A to inspect
+aspect B, aspect A must declare the providers it needs from aspect B (with
+`required_aspect_providers` attribute), and aspect B must declare the providers
+it returns (with `provides` attribute).
+
 #### `BUILD` file
 The main build configuration file containing rule declarations (e.g.
 `cc_binary`, `go_library`). When `BUILD` files are evaluated and analyzed, the
 rules create new targets in the target dependency graph. A `BUILD` file can load
 and use Starlark-defined rules from `.bzl` files. A `BUILD` file marks a
 directory as a [*package*](#Package).
+
+<!-- #### Build event protocol -->
 
 <!-- **Command.** -->
 
@@ -184,7 +194,7 @@ output files, and build metadata. Frequently used in conjunction with
 
 <!-- **Remote caching.** -->
 
-<!-- **Remote execution.** -->
+<!-- #### Remote execution -->
 
 #### Repository
 A directory containing a `WORKSPACE` file.
@@ -234,9 +244,9 @@ of Starlark (e.g. no `def` function definitions). Formerly known as Skylark.
 
 <!-- **Starlark Build API.** -->
 
-<!-- **Starlark configuration.** -->
+<!-- #### Starlark rules. -->
 
-<!-- #### Starlark Sandwich -->
+<!-- #### Starlark rule sandwich -->
 
 #### Startup flags
 
@@ -263,7 +273,9 @@ target* is a pair of *target* and *build configuration*.
 
 A way to specify a group of targets on the command line. Commonly used patterns
 are `:all` (all rule targets), `:*` (all rule + file targets), `...` (current
-package and all subpackages recursively).
+package and all subpackages recursively). Can be used in combination, for
+example, `//...:*` means all rule and file targets in all packages recursively
+from the root of the workspace.
 
 #### Tests
 Rule targets instantiated from test rules, and therefore contains a test
