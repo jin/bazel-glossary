@@ -226,11 +226,11 @@ release builds. Enable through the `--workspace_status_command` flag and rules
 that support the `stamp` attribute.
 
 #### Starlark
-Formerly known as Skylark, the extension language for writing rules and macros.
-A restricted subset of Python (syntactically and grammatically) aimed for the
-purpose of configuration, and for better performance. Uses the `.bzl` file
-extension. [*`BUILD`*](#BUILD-file) files use an even more restricted version
-of Starlark (e.g. no `def` function definitions).
+The extension language for writing rules and macros. A restricted subset of
+Python (syntactically and grammatically) aimed for the purpose of configuration,
+and for better performance. Uses the `.bzl` file extension.
+[*`BUILD`*](#BUILD-file) files use an even more restricted version
+of Starlark (e.g. no `def` function definitions). Formerly known as Skylark.
 
 <!-- **Starlark Build API.** -->
 
