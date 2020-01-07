@@ -238,7 +238,12 @@ of Starlark (e.g. no `def` function definitions). Formerly known as Skylark.
 
 <!-- #### Starlark Sandwich -->
 
-<!-- **Startup flags.** -->
+#### Startup flags
+
+The set of flags specified between `bazel` and the command, for example, `bazel
+--host_jvm_debug build`. These flags modify the configuration of the Bazel
+server, so any modification to startup flags causes a server restart. Startup
+flags are not specific to any command.
 
 <!-- **Symlink forest.** -->
 
@@ -254,7 +259,11 @@ target* is a pair of *target* and *build configuration*.
 
 <!-- **Target graph.** -->
 
-<!-- **Target pattern.** -->
+#### Target pattern
+
+A way to specify a group of targets on the command line. Commonly used patterns
+are `:all` (all rule targets), `:*` (all rule + file targets), `...` (current
+package and all subpackages recursively).
 
 #### Tests
 Rule targets instantiated from test rules, and therefore contains a test
