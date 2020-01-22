@@ -57,6 +57,11 @@ For an aspect A to inspect aspect B, aspect A must declare the
 attribute), and aspect B must declare the providers it returns (with
 `provides` attribute).
 
+#### Attribute
+An input argument of a [*rule*](#Rule) or [*aspect*](#Aspect). Attributes are
+declared as part of rule/aspect definition. Attribute declaration includes its
+type, visibility, default value and other parameters.
+
 #### `BUILD` file
 The main build configuration file containing rule declarations (e.g.
 `cc_binary`, `go_library`). When `BUILD` files are evaluated and analyzed, the
@@ -99,7 +104,7 @@ in the post-analysis phase graph, which means configuration flags like
 
 #### Dependency
 A directed edge between two [*targets*](#Target). A target `//:foo` has a
-*target dependency* on another target `//:bar` if the attribute values of
+*target dependency* on another target `//:bar` if the [*attribute*](#Attribute) values of
 `//:foo` contain a reference to `//:bar`. This dependency can also be in the
 form of an *action dependency*. That is, if an action that produces a file in
 `//:foo` depends on an input artifact that is an output artifact of an action in
@@ -191,7 +196,7 @@ subdirectories containing `BUILD` files, thus forming a *package hierarchy*.
 
 #### Package group
 A target representing a set of packages, and therefore has a label usually
-referenced in `visibility` attribute values.
+referenced in `visibility` [*attribute*](#Attribute) values.
 
 <!-- **Platform.** -->
 
@@ -219,10 +224,10 @@ not be *correct* or the desired ones.
 
 #### Rule
 A function implementation that registers a series of *actions* to be performed
-on inputs to produce a set of outputs. Rules can read values from *attributes*
-as inputs (e.g. `deps`, `testonly`, `name`). Rule targets also produce and pass
-along information that may be useful to other rule targets in the form of
-*providers* (e.g. `DefaultInfo` provider).
+on inputs to produce a set of outputs. Rules can read values from
+[*attributes*](#Attribute) as inputs (e.g. `deps`, `testonly`, `name`). Rule
+targets also produce and pass along information that may be useful to other rule
+targets in the form of *providers* (e.g. `DefaultInfo` provider).
 
 #### Runfiles
 The runtime dependencies of an executable target. Most commonly, the executable
@@ -242,7 +247,7 @@ The core parallel, functional, and incremental evaluation framework of Bazel.
 A feature to embed additional information into Bazel-built artifacts. Commonly
 used for source control, build time and other workspace-related information for
 release builds. Enable through the `--workspace_status_command` flag and rules
-that support the `stamp` attribute.
+that support the `stamp` [*attribute*](#Attribute).
 
 #### Starlark
 The extension language for writing rules and macros. A restricted subset of
@@ -271,8 +276,8 @@ A buildable unit. Can be a *rule target*, *file target*, or a *package group*.
 Rule targets are instantiated from rule declarations in `BUILD` files. Depending
 on the rule implementation, rule targets can also be *testable* or *runnable*.
 Every file used in `BUILD` files is a file target. Targets can depend on other
-targets via attributes (most commonly but not necessarily `deps`). A *configured
-target* is a pair of *target* and *build configuration*.
+targets via [*attributes*](#Attribute) (most commonly but not necessarily `deps`). 
+A *configured target* is a pair of *target* and *build configuration*.
 
 <!-- **Target configuration.** -->
 
@@ -330,3 +335,4 @@ additional dependencies from the network or local filesystem.
 * Michelle Irvine, Google (for the original glossary)
 * Greg Estren, Google (for the configurability glossary)
 * Jon Brandvein, Google (contributions to the original glossary)
+* Artem Zinnatullin, external (contributions to the glossary)
